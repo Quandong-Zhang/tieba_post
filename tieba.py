@@ -19,9 +19,9 @@ class Post(object):
         try:
             self._get_cookies()
         except IOError as e:
-            print e
+            print (e)
         if self._check_login():
-            print 'from cache...'
+            print ('from cache...')
         else:
             # 防止cookie过期失效
             self.session.cookies.clear()
@@ -132,9 +132,9 @@ class Post(object):
         if self._check_login():
             with open('cookie.json', 'w') as f:
                 json.dump(self.session.cookies.get_dict(), f)
-            print 'login...'
+            print ('login...')
         else:
-            print 'password or username error!'
+            print ('password or username error!')
 
 
 class TiebaPost(object):
